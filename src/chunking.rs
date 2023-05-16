@@ -1,8 +1,6 @@
 use bevy::{math::Vec3Swizzles, prelude::*, utils::HashSet};
 use bevy_ecs_tilemap::prelude::*;
 
-/// Press WASD to move the camera around, and watch as chunks spawn/despawn in response.
-
 const TILE_SIZE: TilemapTileSize = TilemapTileSize { x: 16.0, y: 16.0 };
 // For this example, don't choose too large a chunk size.
 const CHUNK_SIZE: UVec2 = UVec2 { x: 4, y: 4 };
@@ -36,7 +34,7 @@ pub fn spawn_chunk(commands: &mut Commands, asset_server: &AssetServer, chunk_po
         chunk_pos.y as f32 * CHUNK_SIZE.y as f32 * TILE_SIZE.y,
         0.0,
     ));
-    let texture_handle: Handle<Image> = asset_server.load("rick-astley-never-gonna-give-you-up-4k.jpg");
+    let texture_handle: Handle<Image> = asset_server.load("grass32.png");
     commands.entity(tilemap_entity).insert(TilemapBundle {
         grid_size: TILE_SIZE.into(),
         size: CHUNK_SIZE.into(),
